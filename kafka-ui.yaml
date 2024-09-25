@@ -1,0 +1,17 @@
+kafka:
+  clusters:
+    - name: "local"
+      bootstrapServers: "89"
+      zookeeper: "192.168.89.38:2181"
+      schemaRegistry: "http://192.168.89.38:8081" 
+      kafkaConnect:
+        - name: "Kafka Connect"
+          address: "http://192.168.89.38:8083"     
+          maxTasks: 5                                 
+      properties:
+        consumer:
+          fetch.max.wait.ms: 500
+        producer:
+          retries: 3
+        admin:
+          client.id: "admin-client"

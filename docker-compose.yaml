@@ -1,0 +1,71 @@
+﻿services:
+  warehouse.consumer:
+    image: warehouse.consumer
+    build:
+      context: .
+      dockerfile: src/Warehouse.Consumer/Dockerfile
+    environment:
+      - Kafka__Servers__0=${KAFKA_BROKER}
+      - Redis__Host=${REDIS_HOST}
+    depends_on:
+      - warehouse.producer
+      - prometheus
+    ports:
+      - 8001:8001
+  warehouse.producer:
+    image: warehouse.producer
+    build:
+      context: .
+      dockerfile: src/Warehouse.Producer/Dockerfile
+    environment:
+      - Kafka__Servers__0=${KAFKA_BROKER}
+      - Redis__Host=${REDIS_HOST}    
+    depends_on:
+      - prometheus
+    ports:
+      - 8002:8002
+  prometheus:
+    container_name: prometheus-warehouse
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - 9090:9090        
+    networks:
+      - monitoring
+  grafana:
+    container_name: grafana-warehouse
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    links:
+      - prometheus      
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-storage:/var/lib/grafana
+  kafka-ui:
+    container_name: kafka-ui-warehouse
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 8080:8080
+    environment:
+      DYNAMIC_CONFIG_ENABLED: true
+    volumes:
+      - ./kafka-ui.yaml:/config/kafka-ui.yaml
+
+networks:
+  monitoring:
+    driver: bridge
+    
+volumes:
+  grafana-storage: 
+    
+    

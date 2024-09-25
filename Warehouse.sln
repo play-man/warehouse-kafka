@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Producer", "src\Warehouse.Producer\Warehouse.Producer.csproj", "{4BFDDA92-2BB2-4BDD-B3AD-B4F612502190}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Consumer", "src\Warehouse.Consumer\Warehouse.Consumer.csproj", "{0F86250F-48B1-4CF5-BCBA-7C4732D4D6D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C21784E0-735D-4104-BC5B-76F296285C0D}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+		kafka-ui.yml = kafka-ui.yaml
+		.env = .env
+		common.props = common.props
+		prometheus.yaml = prometheus.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Shared", "src\Warehouse.Shared\Warehouse.Shared.csproj", "{A909811D-6748-4CEC-A0BB-9EF71EB0C976}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Tests", "tests\Warehouse.Tests\Warehouse.Tests.csproj", "{B511607D-37C5-431C-921E-C36C7BA35CBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2DCB89E5-3D01-424B-82FB-0169D41DA0AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{256E1321-5239-430A-B897-FEB46F99ED59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BFDDA92-2BB2-4BDD-B3AD-B4F612502190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFDDA92-2BB2-4BDD-B3AD-B4F612502190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFDDA92-2BB2-4BDD-B3AD-B4F612502190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFDDA92-2BB2-4BDD-B3AD-B4F612502190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F86250F-48B1-4CF5-BCBA-7C4732D4D6D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F86250F-48B1-4CF5-BCBA-7C4732D4D6D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F86250F-48B1-4CF5-BCBA-7C4732D4D6D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F86250F-48B1-4CF5-BCBA-7C4732D4D6D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A909811D-6748-4CEC-A0BB-9EF71EB0C976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A909811D-6748-4CEC-A0BB-9EF71EB0C976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A909811D-6748-4CEC-A0BB-9EF71EB0C976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A909811D-6748-4CEC-A0BB-9EF71EB0C976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B511607D-37C5-431C-921E-C36C7BA35CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B511607D-37C5-431C-921E-C36C7BA35CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B511607D-37C5-431C-921E-C36C7BA35CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B511607D-37C5-431C-921E-C36C7BA35CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F86250F-48B1-4CF5-BCBA-7C4732D4D6D1} = {2DCB89E5-3D01-424B-82FB-0169D41DA0AB}
+		{4BFDDA92-2BB2-4BDD-B3AD-B4F612502190} = {2DCB89E5-3D01-424B-82FB-0169D41DA0AB}
+		{A909811D-6748-4CEC-A0BB-9EF71EB0C976} = {2DCB89E5-3D01-424B-82FB-0169D41DA0AB}
+		{B511607D-37C5-431C-921E-C36C7BA35CBF} = {256E1321-5239-430A-B897-FEB46F99ED59}
+	EndGlobalSection
+EndGlobal

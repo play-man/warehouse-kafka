@@ -1,0 +1,42 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  warehouse.consumer:
+    build:
+      context: "C:\\Users\\Alex\\source\\repos\\C# Templates\\Warehouse"
+      dockerfile: "src/Warehouse.Consumer/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Warehouse.Consumer.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net8.0/Warehouse.Consumer.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "warehouse.consumer:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Alex\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\Alex\\source\\repos\\C# Templates\\Warehouse\\src\\Warehouse.Consumer:/app:rw"
+    - "C:\\Users\\Alex\\source\\repos\\C# Templates\\Warehouse:/src:rw"
+    working_dir: "/app"
+  warehouse.producer:
+    build:
+      context: "C:\\Users\\Alex\\source\\repos\\C# Templates\\Warehouse"
+      dockerfile: "src/Warehouse.Producer/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Warehouse.Producer.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net8.0/Warehouse.Producer.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "warehouse.producer:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Alex\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\Alex\\source\\repos\\C# Templates\\Warehouse\\src\\Warehouse.Producer:/app:rw"
+    - "C:\\Users\\Alex\\source\\repos\\C# Templates\\Warehouse:/src:rw"
+    working_dir: "/app"
